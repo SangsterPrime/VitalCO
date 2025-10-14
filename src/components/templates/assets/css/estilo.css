@@ -1,0 +1,408 @@
+/* © 2025 S4ngster — Licencia S4ngster 2025 — Solo uso interno de Distribuidora Oeste */
+:root{
+	--bg:#0f0f12;
+	--card:#17181d;
+	--muted:#9aa1ae;
+	--text:#f5f7fb;
+	--brand:#ff7a00;
+	--brand-2:#ffb703;
+	--ok:#22c55e;
+	--danger:#ef4444;
+	--shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{ background-color: var(--bg) }
+body{
+    margin:0;
+    font-family:system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+	/* Fondo en pseudo-elemento; el body queda transparente */
+	background: transparent;
+	color:var(--text);
+}
+
+/* Cabecera */
+.header{
+	position:sticky;top:0;z-index:10;
+	display:flex;align-items:center;justify-content:space-between;
+	padding:12px 18px; backdrop-filter:saturate(1.2) blur(6px);
+	background:rgba(15,15,18,.55); border-bottom:1px solid #1f2230;
+	padding-top: calc(12px + env(safe-area-inset-top));
+}
+.logo{font-weight:800;letter-spacing:.3px}
+.nav{display:flex;gap:12px;align-items:center}
+.nav a{color:var(--text);text-decoration:none;opacity:.9}
+
+/* Botón 3 puntos y menú rápido (se usan en móvil) */
+.menu-fab{ display:none }
+.quick-menu{ display:none }
+
+@media (max-width: 720px){
+  .header{ justify-content:center; gap:8px }
+  .logo{ position:absolute; left:50%; transform:translateX(-50%); text-align:center }
+  .logo img{ height:1.2em !important }
+  .nav{ width:100%; display:flex; justify-content:flex-end; gap:8px }
+  .nav a{ display:none } /* ocultar enlaces de texto en móvil */
+  .menu-fab{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:40px; height:40px; border-radius:10px;
+    background:rgba(15,16,21,.72); color:var(--text); border:1px solid #2b2e40;
+    font-size:22px; line-height:1; cursor:pointer;
+  }
+  .menu-fab:focus-visible{ outline:2px solid rgba(255,255,255,.5); outline-offset:2px }
+  .quick-menu{ position:fixed; top:56px; right:12px; z-index:100; display:grid; gap:8px;
+    background:rgba(14,16,22,.9); border:1px solid #2b2e40; border-radius:12px; padding:10px;
+    box-shadow: var(--shadow); backdrop-filter: blur(6px) saturate(120%); -webkit-backdrop-filter: blur(6px) saturate(120%);
+  }
+  .quick-menu[hidden]{ display:none }
+  .quick-menu a{ color:var(--text); text-decoration:none; padding:10px 12px; border-radius:8px }
+  .quick-menu a:hover{ background:#1b1f2b }
+}
+
+/* Botones */
+.btn{
+	background:linear-gradient(135deg,var(--brand),var(--brand-2));
+	color:#111; border:0; padding:10px 14px; border-radius:10px;
+	font-weight:700; cursor:pointer; box-shadow:var(--shadow);
+}
+.btn--ghost{background:transparent;color:var(--text);border:1px solid #2a2d3d}
+.btn--full{width:100%}
+.icon-btn{background:transparent;border:0;color:var(--text);font-size:18px;cursor:pointer}
+.badge{background:var(--brand);color:#111;border-radius:999px;padding:2px 8px;margin-left:6px;font-weight:800}
+.badge--bump{animation:badgeBump .35s ease}
+
+/* WhatsApp: hacer el botón de pedir más visible y armónico */
+.btn.pedir-wsp,
+.btn--ghost.pedir-wsp{
+	background:linear-gradient(135deg, var(--ok), #16a34a);
+	color:#0d1512;
+	border:0;
+}
+.btn.pedir-wsp:hover{filter:brightness(1.06)}
+.btn.pedir-wsp:focus-visible{
+	outline:2px solid rgba(34,197,94,.6);
+	outline-offset:2px;
+	box-shadow:0 0 0 3px rgba(34,197,94,.25), var(--shadow);
+}
+
+/* Hero */
+.hero{
+    display:grid;place-items:center;min-height:46vh;
+    background: transparent;
+}
+.hero__contenido{max-width:900px;padding:40px 18px;text-align:center;position:relative}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 8px}
+.hero p{color:var(--muted);margin:0 0 14px}
+
+/* Secciones */
+.seccion{padding:24px 18px 60px;max-width:1100px;margin:0 auto}
+.seccion__header{display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;margin-bottom:16px}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+	background:#202230;color:var(--text);border:1px solid #2b2e40;border-radius:999px;padding:8px 12px;cursor:pointer
+}
+.chip.activa{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#111;border:0}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.producto{background:var(--card);border:1px solid #222536;border-radius:14px;padding:14px;display:grid;gap:8px;box-shadow:var(--shadow)}
+.producto__img{font-size:36px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5));
+	display:block;border-radius:10px;background:#15161b;position:relative;overflow:visible;min-height:180px}
+.producto__img img{display:block;width:100%;height:auto;max-height:clamp(180px, 26vw, 340px);object-fit:contain;object-position:center center;transition:opacity .2s ease;border-radius:8px}
+/* Sin zoom para no recortar la imagen completa */
+.producto:hover .producto__img img{transform:none}
+.producto__img.img-cargando{background:linear-gradient(100deg, #1b1d25 20%, #222633 40%, #1b1d25 60%);background-size:200% 100%;animation:shimmer 1.2s infinite}
+.producto__img.img-cargando img{opacity:0}
+.producto__img.img-error{background:#1b1d25;border:1px dashed #34384a}
+.producto__img.img-error::after{content:'Sin imagen';color:#9aa1ae;font-size:12px;position:absolute;bottom:6px;right:8px;background:#0f1015;padding:2px 6px;border-radius:6px;border:1px solid #2b2e40}
+.producto__img--emoji{background:transparent;height:auto}
+.producto__titulo{margin:0}
+.producto__desc{margin:0;color:var(--muted);font-size:14px}
+.producto__precio{font-weight:800}
+.producto .btn{justify-self:start}
+
+/* Carrito */
+.carrito{position:fixed;top:0;right:-420px;width=360px;max-width:95vw;height:100dvh;background:#13141a;border-left:1px solid #232638;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:right .25s ease;z-index:1000}
+.carrito.resaltar{box-shadow:0 0 0 3px rgba(0,153,255,.35), var(--shadow);animation:carritoPulse .6s ease 1}
+.carrito.abierto{right:0}
+.carrito__cabecera{display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid #232638}
+.carrito__cabecera h2{margin:0;font-size:18px}
+.carrito__items{overflow:auto;flex:1;padding:10px 14px;display:grid;gap:10px}
+.carrito__items .vacio{color:var(--muted);text-align:center;padding:30px 10px;border:1px dashed #2b2e40;border-radius:12px}
+.carrito__resumen{border-top:1px solid #232638;padding:14px;display:grid;gap:10px;background:#0f1015}
+.linea{display:flex;justify-content:space-between;color:var(--muted)}
+.linea.total{color:var(--text);font-size:18px}
+.form{display:grid;gap:10px;margin-top:4px}
+.campo{display:grid;gap:6px}
+.campo input,.campo textarea{width:100%;background:#0f0f14;border:1px solid #2b2e40;color:var(--text);border-radius:8px;padding:8px}
+.campo input::placeholder,.campo textarea::placeholder{color:#6f7687}
+.campo span{font-size:12px;color:var(--muted)}
+
+/* Items del carrito */
+.item{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:10px;border:1px solid #232638;border-radius:12px;padding:10px;background:#171821}
+.item__thumb{width:44px;height:44px;border-radius:8px;overflow:hidden;background:#15161b;display:grid;place-items:center}
+.item__thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.item__thumb--emoji{font-size:18px}
+.item__titulo{margin:0}
+.item__meta{font-size:12px;color:var(--muted)}
+.item__controles{display:flex;align-items:center;gap:6px}
+.qty{display:inline-flex;align-items:center;gap:10px;border:1px solid #2b2e40;border-radius:999px;padding:4px 10px;background:#11121a}
+.qty button{background:transparent;border:0;color:var(--text);font-size:16px;cursor:pointer}
+.precio{font-weight:800}
+.precio-linea{font-weight:800}
+.eliminar{background:transparent;border:0;color:var(--danger);cursor:pointer}
+
+/* Fondo global visible también en móviles (iOS/Android) */
+html, body { height: 100%; }
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+	z-index:-1;               /* detrás de todo */
+	background: url("../img/Fondo.webp") center / cover no-repeat;
+    pointer-events:none;
+    will-change:transform;
+}
+
+/* Footer */
+.footer{
+  /* un poco más de contraste que antes (.48) */
+  background: rgba(10,12,16,.62);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+.footer{padding:20px 18px;color:var(--muted);text-align:center;border-top:1px solid #1f2230; padding-bottom: calc(20px + env(safe-area-inset-bottom)) }
+.footer small{
+  color: #f5f7fb;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+  background: rgba(0,0,0,.38);
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: saturate(120%) blur(4px);
+  -webkit-backdrop-filter: saturate(120%) blur(4px);
+}
+
+/* Promociones: forzar mismo formato vertical y sin bandas negras */
+#listaPromos .producto__img{aspect-ratio:3/5; overflow:hidden}
+#listaPromos .producto__img img{width:100%; height:100%; max-height:none; object-fit:cover}
+
+/* Scroll horizontal para el preview de promociones del hero (solo en index) */
+.scroll-promos{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-inline:10vw;scroll-padding-inline:10vw}
+.scroll-promos::-webkit-scrollbar{height:8px}
+.scroll-promos::-webkit-scrollbar-thumb{background:#2b2e40;border-radius:999px}
+.scroll-promos .producto{width:clamp(240px, 70vw, 320px);flex:0 0 auto;scroll-snap-align:center;scroll-snap-stop:always;padding:10px}
+
+/* Ajustes de proporción/typography para el preview del hero en index */
+.scroll-promos#listaPromos{
+	gap:0;
+	padding-inline:0;
+	scroll-padding-inline:0;
+	scrollbar-width:none;
+	-ms-overflow-style:none;
+	overscroll-behavior-x:contain;
+	touch-action:pan-x pinch-zoom;
+	-webkit-overflow-scrolling:touch;
+	overflow-x:auto !important;
+	overflow-y:hidden;
+	display:flex;
+	width:100%;
+	max-width:100vw;
+	box-sizing:border-box;
+}
+.scroll-promos#listaPromos::-webkit-scrollbar{display:none}
+.scroll-promos#listaPromos .producto{width:100%;flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;background:transparent;border:0;box-shadow:none;padding:0;gap:0}
+.scroll-promos#listaPromos .producto__img{aspect-ratio:1/1; border-radius:14px; overflow:hidden}
+.scroll-promos#listaPromos .producto__img img{width:100%;height:100%;object-fit:cover;backface-visibility:hidden;transform:translateZ(0);-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.scroll-promos#listaPromos .producto__titulo,
+.scroll-promos#listaPromos .producto__desc,
+.scroll-promos#listaPromos .producto__precio,
+.scroll-promos#listaPromos .acciones{display:none !important}
+.scroll-promos#listaPromos .producto__titulo{font-size:15px}
+.scroll-promos#listaPromos .producto__desc{font-size:13px;display:-webkit-box;line-clamp:2;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.scroll-promos#listaPromos .producto__precio{font-size:14px}
+.scroll-promos .acciones .add-to-cart{display:none}
+.scroll-promos .btn{padding:8px 10px;border-radius:8px;font-size:14px}
+
+/* Desktop: hacer el carrusel del hero más elegante y menos grande */
+@media (min-width: 900px){
+	/* Parallax sutil para la capa fija en desktop */
+	body::before{ transform: translateZ(0) }
+	.scroll-promos#listaPromos{ gap:16px; padding-inline:10vw; scroll-padding-inline:10vw }
+	.scroll-promos#listaPromos .producto{ flex:0 0 clamp(380px, 42vw, 520px) }
+	.scroll-promos#listaPromos .producto__img{ aspect-ratio:4/3; border-radius:16px }
+}
+
+/* Controles del carrusel (hero) */
+.scroll-promos__arrow{
+	position:absolute; top:50%; transform:translateY(-50%);
+	width:42px; height:42px; border-radius:10px;
+	background:rgba(15,16,21,.72); border:1px solid #2b2e40; color:var(--text);
+	display:grid; place-items:center; cursor:pointer; z-index:2;
+}
+.scroll-promos__arrow:hover{filter:brightness(1.08)}
+.scroll-promos__arrow:disabled{opacity:.45; cursor:default}
+.scroll-promos__arrow.prev{left:2vw}
+.scroll-promos__arrow.next{right:2vw}
+
+.scroll-promos__paginacion{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:10px}
+.hero .hero__contenido > .btn{margin-top:14px}
+.scroll-promos__dot{width:10px;height:10px;border-radius:999px;background:#2b2e40;border:0;cursor:pointer}
+.scroll-promos__dot.activo{background:var(--ok);box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+
+/* Mejoras móviles: targets más grandes y slider más amigable */
+@media (max-width: 520px){
+	.scroll-promos__arrow{width:48px;height:48px}
+	.scroll-promos__dot{width:11px;height:11px}
+}
+
+@media (hover:hover){
+	.producto:hover{transform:translateY(-2px)}
+}
+
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes badgeBump{0%{transform:scale(1)}30%{transform:scale(1.2)}60%{transform:scale(0.9)}100%{transform:scale(1)}}
+@keyframes carritoPulse{0%{box-shadow:0 0 0 0 rgba(0,153,255,.0)}100%{box-shadow:0 0 0 3px rgba(0,153,255,.0)}}
+
+/* Toasts */
+.toasts{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:grid;gap:8px;z-index:1100}
+.toast{background:#12131a;border:1px solid #2b2e40;color:var(--text);padding:10px 12px;border-radius:10px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;animation:slideUp .25s ease forwards}
+.toast__icon{font-size:18px}
+.toast .btn{padding:6px 10px;border-radius:8px;font-size:12px;box-shadow:none}
+@keyframes slideUp{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}
+
+/* Ajustes móviles para evitar barras negras en imágenes */
+@media (max-width: 520px){
+	.producto__img{min-height:auto}
+	.producto__img:not(.img-cargando){background:transparent}
+	.producto__img img{max-height:none;width:100%;height:auto}
+}
+
+/* Fondo global visible también en móviles (fix para iOS/Android) */
+html, body { height: 100%; }
+body {
+  background-color: #0d0f12; /* fallback sólido */
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;               /* detrás de todo */
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("../img/Fondo.webp") center / cover no-repeat;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Opcional: en desktop puedes intensificar el “parallax” */
+@media (min-width: 900px) {
+  body::before { transform: translateZ(0); }
+}
+
+/* Header / footer: contraste y blur sutil sobre el fondo */
+.header,
+.footer {
+  background: rgba(10, 12, 16, 0.48);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+
+/* Hero: mantener legibilidad arriba con un degradado suave */
+.hero {
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.20) 35%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__contenido { position: relative; z-index: 1; }
+
+/* Títulos y textos principales más nítidos sobre foto */
+.hero h1,
+.seccion__header h2 {
+  text-shadow: 0 4px 16px rgba(0,0,0,.55), 0 1px 0 rgba(0,0,0,.6);
+}
+.hero p,
+.seccion__header p {
+  text-shadow: 0 2px 10px rgba(0,0,0,.55);
+}
+
+/* Navegación / logo un poco más contrastados */
+.nav a,
+.logo {
+  text-shadow: 0 1px 3px rgba(0,0,0,.55);
+}
+
+/* Copyright MUY legible sobre el fondo */
+.footer{
+  /* un poco más de contraste que antes (.48) */
+  background: rgba(10,12,16,.62);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+}
+
+.footer small{
+  color: #f5f7fb;
+  text-shadow: 0 1px 3px rgba(0,0,0,.9);
+  background: rgba(0,0,0,.38);
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: saturate(120%) blur(4px);
+  -webkit-backdrop-filter: saturate(120%) blur(4px);
+}
+
+/* En pantallas pequeñas, sube un poco el contraste del degradado del hero */
+@media (max-width: 600px) {
+  .hero::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,.62), rgba(0,0,0,.25) 38%, transparent 62%);
+  }
+}
+
+/* Promociones: frase final legible sin burbuja */
+.seccion > p.producto__desc{
+  color: #ffffff !important; /* blanco puro para máxima legibilidad */
+  text-align: center;
+  font-weight: 800;
+  font-size: clamp(16px, 2.9vw, 20px);
+  letter-spacing: .2px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* Outline basado en sombras múltiples (sin burbuja) */
+  text-shadow:
+    0 0 2px rgba(0,0,0,.98),
+    0 2px 8px rgba(0,0,0,.9),
+    0 12px 28px rgba(0,0,0,.7),
+    1px 0 0 rgba(0,0,0,.7),
+    -1px 0 0 rgba(0,0,0,.7),
+    0 -1px 0 rgba(0,0,0,.7);
+  -webkit-text-stroke: .8px rgba(0,0,0,.42);
+}
+/* Si hubiera enlaces dentro, mantener color blanco y subrayado claro */
+.seccion > p.producto__desc a{ color:#ffffff; text-decoration: underline; text-underline-offset: 2px }
+@media (max-width: 520px){
+  .seccion > p.producto__desc{
+    font-size: clamp(16px, 3.6vw, 21px);
+    text-shadow:
+      0 0 2px rgba(0,0,0,1),
+      0 2px 10px rgba(0,0,0,.95),
+      0 14px 32px rgba(0,0,0,.75),
+      1px 0 0 rgba(0,0,0,.75),
+      -1px 0 0 rgba(0,0,0,.75),
+      0 -1px 0 rgba(0,0,0,.75);
+    -webkit-text-stroke: 1px rgba(0,0,0,.44);
+  }
+}
+
+/* Descripción del encabezado de promociones: un poco más clara y con sombra */
+.seccion__header p.producto__desc{
+  color: #eef5ff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.55), 0 1px 0 rgba(0,0,0,.45);
+}

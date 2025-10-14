@@ -1,0 +1,25 @@
+<!-- Placeholder SVG para dispensador -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f8fafc"/>
+  <rect x="20" y="20" width="360" height="260" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  
+  <!-- Dispensador -->
+  <rect x="170" y="60" width="60" height="120" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2" rx="8"/>
+  
+  <!-- Botellón en la parte superior -->
+  <circle cx="200" cy="75" r="18" fill="#3b82f6" opacity="0.3"/>
+  <circle cx="200" cy="75" r="15" fill="#2563eb"/>
+  
+  <!-- Grifo -->
+  <rect x="190" y="140" width="20" height="8" fill="#6b7280" rx="2"/>
+  <rect x="195" y="148" width="10" height="15" fill="#4b5563" rx="2"/>
+  
+  <!-- Base -->
+  <ellipse cx="200" cy="180" rx="35" ry="8" fill="#d1d5db"/>
+  
+  <text x="200" y="210" font-family="Arial" font-size="16" fill="#374151" text-anchor="middle" font-weight="bold">Dispensador</text>
+  <text x="200" y="230" font-family="Arial" font-size="12" fill="#6b7280" text-anchor="middle">Compacto y práctico</text>
+  
+  <rect x="150" y="245" width="100" height="30" fill="#059669" rx="15"/>
+  <text x="200" y="265" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">$6.990</text>
+</svg>

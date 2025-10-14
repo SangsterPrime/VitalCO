@@ -1,0 +1,27 @@
+<!-- Placeholder SVG para huevos -->
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f8fafc"/>
+  <rect x="20" y="20" width="360" height="260" fill="white" stroke="#e2e8f0" stroke-width="2" rx="10"/>
+  
+  <!-- Grid de huevos -->
+  <g transform="translate(140, 80)">
+    <!-- Fila 1 -->
+    <ellipse cx="15" cy="20" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="35" cy="20" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="55" cy="20" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="75" cy="20" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="95" cy="20" rx="8" ry="12" fill="#fef3c7"/>
+    <!-- Fila 2 -->
+    <ellipse cx="15" cy="40" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="35" cy="40" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="55" cy="40" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="75" cy="40" rx="8" ry="12" fill="#fef3c7"/>
+    <ellipse cx="95" cy="40" rx="8" ry="12" fill="#fef3c7"/>
+  </g>
+  
+  <text x="200" y="180" font-family="Arial" font-size="16" fill="#374151" text-anchor="middle" font-weight="bold">Huevos x30</text>
+  <text x="200" y="200" font-family="Arial" font-size="12" fill="#6b7280" text-anchor="middle">Frescos y seleccionados</text>
+  
+  <rect x="150" y="220" width="100" height="30" fill="#059669" rx="15"/>
+  <text x="200" y="240" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">$8.570</text>
+</svg>

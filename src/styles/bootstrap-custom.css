@@ -1,0 +1,290 @@
+/* Estilos personalizados para VitalCO con Bootstrap */
+
+/* Variables personalizadas */
+:root {
+  /* Primary color updated from blue to turquoise */
+  --vitalco-primary: #40e0d0; /* Turquoise */
+  --vitalco-secondary: #64748b;
+  --vitalco-success: #059669;
+  --vitalco-warning: #d97706;
+  --vitalco-danger: #dc2626;
+}
+
+/* Override de colores de Bootstrap */
+.btn-primary {
+  --bs-btn-bg: var(--vitalco-primary);
+  --bs-btn-border-color: var(--vitalco-primary);
+}
+
+.text-primary {
+  color: var(--vitalco-primary) !important;
+}
+
+.bg-primary {
+  /* Updated gradient to turquoise shades */
+  background: linear-gradient(135deg, var(--vitalco-primary) 0%, #23b5a8 50%, #1aa395 100%) !important;
+}
+
+/* Navbar personalizada */
+.navbar-scrolled {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  transition: all 0.3s ease;
+}
+
+/* Hamburger menu personalizado */
+.navbar-toggler-custom {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-toggler-custom span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--vitalco-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-custom span:nth-child(1) {
+  top: 0;
+}
+
+.navbar-toggler-custom span:nth-child(2) {
+  top: 8px;
+}
+
+.navbar-toggler-custom span:nth-child(3) {
+  top: 16px;
+}
+
+.navbar-toggler-custom.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.navbar-toggler-custom.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler-custom.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+
+/* Hero personalizado */
+.hero {
+  min-height: 70vh;
+  /* Turquoise gradient replacing original blue */
+  background: linear-gradient(135deg, #40e0d0 0%, #23b5a8 50%, #1aa395 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+/* Cards personalizadas */
+.card {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card.border-warning {
+  border: 2px solid var(--vitalco-warning) !important;
+  background: linear-gradient(145deg, #fff9e6, #ffffff);
+}
+
+.card.border-warning:hover {
+  box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2);
+}
+
+/* Promo card improvements */
+.promo-card .card-img-top::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9));
+}
+
+.promo-card .card-body {
+  /* Adjust radial accent tint to turquoise */
+  background-image: radial-gradient(rgba(64, 224, 208, 0.15) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.badge.bg-danger-subtle {
+  background-color: #fee2e2 !important;
+}
+
+.promo-card .card-img-top img {
+  transition: transform 0.5s ease;
+}
+.promo-card:hover .card-img-top img {
+  transform: scale(1.04);
+}
+
+/* Botones con efectos */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(64, 224, 208, 0.35);
+}
+
+.btn-success:hover {
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+/* Offcanvas personalizado */
+.offcanvas {
+  width: 400px !important;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .offcanvas {
+    width: 100% !important;
+  }
+}
+
+/* Badge animado */
+.badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Filtros de categorías */
+.btn.rounded-pill {
+  border-radius: 50rem !important;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Navbar collapse personalizado */
+.navbar-collapse.show {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading personalizado */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Utilidades adicionales */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive helpers */
+@media (max-width: 576px) {
+  .display-3 {
+    font-size: 2.5rem;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animaciones de entrada */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mejoras de accesibilidad */
+.btn:focus,
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+}
+
+/* Personalización del scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vitalco-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}
