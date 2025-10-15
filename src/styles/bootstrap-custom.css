@@ -2,8 +2,8 @@
 
 /* Variables personalizadas */
 :root {
-  /* Primary color updated from blue to turquoise */
-  --vitalco-primary: #40e0d0; /* Turquoise */
+  /* Primary color updated to emerald/teal */
+  --vitalco-primary: #009E73; /* Emerald/Teal */
   --vitalco-secondary: #64748b;
   --vitalco-success: #059669;
   --vitalco-warning: #d97706;
@@ -21,8 +21,8 @@
 }
 
 .bg-primary {
-  /* Updated gradient to turquoise shades */
-  background: linear-gradient(135deg, var(--vitalco-primary) 0%, #23b5a8 50%, #1aa395 100%) !important;
+  /* Emerald/Teal gradient */
+  background: linear-gradient(135deg, var(--vitalco-primary) 0%, #008a6a 50%, #007F5F 100%) !important;
 }
 
 /* Navbar personalizada */
@@ -79,8 +79,8 @@
 /* Hero personalizado */
 .hero {
   min-height: 70vh;
-  /* Turquoise gradient replacing original blue */
-  background: linear-gradient(135deg, #40e0d0 0%, #23b5a8 50%, #1aa395 100%);
+  /* Emerald/Teal gradient */
+  background: linear-gradient(135deg, #009E73 0%, #008a6a 50%, #007F5F 100%);
   position: relative;
   overflow: hidden;
 }
@@ -132,8 +132,8 @@
 }
 
 .promo-card .card-body {
-  /* Adjust radial accent tint to turquoise */
-  background-image: radial-gradient(rgba(64, 224, 208, 0.15) 1px, transparent 1px);
+  /* Adjust radial accent tint to emerald */
+  background-image: radial-gradient(rgba(0, 158, 115, 0.15) 1px, transparent 1px);
   background-size: 12px 12px;
 }
 
@@ -175,7 +175,7 @@
 }
 
 .btn-primary:hover {
-  box-shadow: 0 4px 12px rgba(64, 224, 208, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 158, 115, 0.35);
 }
 
 .btn-success:hover {

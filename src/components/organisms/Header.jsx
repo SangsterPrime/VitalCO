@@ -58,7 +58,7 @@ const Header = () => {
       <nav className={`navbar navbar-expand-lg navbar-light bg-white sticky-top ${!isAtTop ? 'navbar-scrolled shadow' : ''}`}>
         <div className="container-fluid px-3 px-lg-4">
           {/* Logo */}
-          <a className="navbar-brand fw-bold text-primary d-flex align-items-center" href="#home">
+          <a className="navbar-brand fw-bold text-dark d-flex align-items-center" href="#home">
             <img 
               src="/logo.webp" 
               alt="vitalCO" 

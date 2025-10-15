@@ -77,7 +77,7 @@ export const products = [
   // Accesorios
   {
     id: 'pack_bidones',
-    name: 'Pack para bidones',
+    name: 'Rack para bidones',
     description: 'Tapas, picos y sellos.',
     price: 55000,
     category: 'organizadores',
