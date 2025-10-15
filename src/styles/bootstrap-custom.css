@@ -199,6 +199,23 @@
   animation: pulse 2s infinite;
 }
 
+/* Mobile navbar toggler (3 lines) polished */
+.navbar .navbar-toggler {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+.navbar .navbar-toggler:focus-visible {
+  outline: 2px solid rgba(0,158,115,.5);
+  outline-offset: 2px;
+}
+
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }

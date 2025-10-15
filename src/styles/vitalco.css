@@ -3,6 +3,8 @@
 :root {
   --color-primary: #009E73; /* Emerald/Teal */
   --color-primary-dark: #007F5F; /* Deeper teal green */
+  --color-primary-50: #e6f7f2; /* very light */
+  --color-primary-100: #ccf0e6; /* lighter */
   --color-success: #059669;
   --color-error: #dc2626;
   --color-warning: #d97706;
@@ -14,11 +16,13 @@
   --color-shadow: rgba(0, 0, 0, 0.1);
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --border-radius: 8px;
+  --radius-lg: 14px;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
+  --shadow-soft: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 * { box-sizing: border-box; }
@@ -140,6 +144,32 @@ body {
   padding: var(--spacing-md) var(--spacing-xl);
   font-size: 1.1rem;
   border-radius: 12px;
+}
+
+/* CTA buttons tuned for accessibility */
+.btn-cta {
+  background: var(--color-primary);
+  color: #fff;
+  border: 2px solid transparent;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background: var(--color-primary-dark);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 30%, transparent);
+}
+
+.btn-cta-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.9);
+}
+
+.btn-cta-outline:hover,
+.btn-cta-outline:focus-visible {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
 }
 
 .btn--ghost {
@@ -379,6 +409,37 @@ body {
   transform: translateX(4px) translateY(-2px);
 }
 
+/* Floating Instagram button */
+.instagram-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 88px; /* above cart/toast */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 1040;
+}
+
+.instagram-fab:hover, .instagram-fab:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  outline: 3px solid color-mix(in srgb, #ffffff 30%, transparent);
+  outline-offset: 2px;
+}
+
+/* Brand color utilities for icons */
+.brand-icon { display: inline-flex; align-items: center; justify-content: center; transition: color 0.2s ease, transform 0.2s ease; }
+.brand-ig { color: #E4405F !important; }
+.brand-fb { color: #1877F2 !important; }
+.brand-wa { color: #25D366 !important; }
+.brand-icon:hover { transform: translateY(-1px); }
+
 /* Hero Section */
 .hero {
   /* Turquoise background replacing original blue */
@@ -469,6 +530,18 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.subtitle--distribuidora {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.leading-relaxed { line-height: 1.8; }
+
 /* Scroll Promos */
 .scroll-promos {
   display: flex;
@@ -556,19 +629,19 @@ body {
 }
 
 .producto--promo {
-  border: 2px solid var(--color-warning);
-  background: linear-gradient(145deg, #fff9e6, #ffffff);
+  border: 2px solid var(--color-primary);
+  background: linear-gradient(180deg, var(--color-primary-50), #ffffff);
 }
 
 .producto--promo:hover {
-  box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2);
-  border-color: var(--color-warning);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-primary-dark);
 }
 
 .producto__img {
   aspect-ratio: 4/3;
   overflow: hidden;
-  background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+  background: linear-gradient(145deg, var(--color-primary-100), #ffffff);
   position: relative;
   display: flex;
   align-items: center;
@@ -584,6 +657,18 @@ body {
 
 .producto:hover .producto__img img {
   transform: scale(1.05);
+}
+
+/* Promotions section wrappers for ProductCard promos */
+.promos-section .promo-card-wrapper .card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  background: linear-gradient(180deg, var(--color-primary-50), #fff);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 20%, #ffffff 80%);
+}
+
+.promos-section .promo-card-wrapper .card .card-img-top {
+  background: var(--color-primary-100);
 }
 
 .producto__loading {

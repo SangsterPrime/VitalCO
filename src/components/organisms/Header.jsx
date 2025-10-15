@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
-import { useMobileMenu, useSmoothScroll, useScrollPosition } from '../../hooks/useUI'
+import { useMobileMenu, useScrollPosition } from '../../hooks/useUI'
 
 const Header = () => {
   const { toggleCart, getTotalItems } = useCart()
   const { isOpen: mobileMenuOpen, toggle: toggleMobileMenu, close: closeMobileMenu } = useMobileMenu()
-  const scrollToSection = useSmoothScroll()
   const { isAtTop } = useScrollPosition()
   
   const menuRef = useRef(null)
@@ -17,10 +17,7 @@ const Header = () => {
     toggleMobileMenu()
   }
 
-  const handleScrollToSection = (sectionId) => {
-    scrollToSection(sectionId, 80) // offset de 80px para el header fijo
-    closeMobileMenu()
-  }
+  // Navegación a secciones se hace con enlaces de hash (/#menu, /#hero)
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -58,7 +55,7 @@ const Header = () => {
       <nav className={`navbar navbar-expand-lg navbar-light bg-white sticky-top ${!isAtTop ? 'navbar-scrolled shadow' : ''}`}>
         <div className="container-fluid px-3 px-lg-4">
           {/* Logo */}
-          <a className="navbar-brand fw-bold text-dark d-flex align-items-center" href="#home">
+          <Link className="navbar-brand fw-bold text-dark d-flex align-items-center" to="/">
             <img 
               src="/images/loguisimo.webp" 
               alt="vitalCO" 
@@ -70,36 +67,21 @@ const Header = () => {
               onError={(e) => {
                 e.target.style.display = 'none'
               }}
-            />
+            />{' '}
             vitalCO
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="d-none d-lg-flex align-items-center">
             <ul className="navbar-nav me-3">
               <li className="nav-item">
-                <a 
-                  href="#menu" 
-                  className="nav-link fw-medium"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleScrollToSection('menu')
-                  }}
-                >
-                  📋 Catálogo
-                </a>
+                <Link to="/#menu" className="nav-link fw-medium">📋 Catálogo</Link>
               </li>
               <li className="nav-item">
-                <a 
-                  href="#hero" 
-                  className="nav-link fw-medium"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleScrollToSection('hero')
-                  }}
-                >
-                  🎉 Promociones
-                </a>
+                <Link to="/#hero" className="nav-link fw-medium">🎉 Promociones</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/contacto" className="nav-link fw-medium">📞 Contáctanos</Link>
               </li>
             </ul>
             
@@ -137,42 +119,59 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Menú móvil desplegable */}
+      {/* Menú móvil: Offcanvas superior para usar desde cualquier scroll */}
+      {mobileMenuOpen && (
+        <button
+          type="button"
+          className="offcanvas-backdrop fade show d-lg-none border-0 p-0 m-0"
+          aria-label="Cerrar menú móvil"
+          onClick={closeMobileMenu}
+        />
+      )}
       <div 
         ref={menuRef}
-        className={`collapse navbar-collapse d-lg-none ${mobileMenuOpen ? 'show' : ''}`}
-        id="mobileMenu"
+        className={`offcanvas offcanvas-top d-lg-none ${mobileMenuOpen ? 'show' : ''}`}
+        style={{ visibility: mobileMenuOpen ? 'visible' : 'hidden', height: '50vh' }}
+        aria-labelledby="mobileMenuLabel"
       >
-        <div className="container-fluid px-3">
+        <div className="offcanvas-header border-bottom">
+          <h5 className="offcanvas-title" id="mobileMenuLabel">Menú</h5>
+          <button type="button" className="btn-close" aria-label="Cerrar" onClick={closeMobileMenu}></button>
+        </div>
+  <div className="offcanvas-body" style={{ overflowY: 'auto' }}>
           <ul className="navbar-nav me-auto mb-3">
             <li className="nav-item">
-              <a 
-                href="#menu" 
+              <Link 
+                to="/#menu" 
                 className="nav-link py-3 border-bottom"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleScrollToSection('menu')
-                }}
+                onClick={closeMobileMenu}
               >
-                <i className="me-2">📋</i>
+                <i className="me-2">📋</i>{' '}
                 Catálogo completo
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a 
-                href="#hero" 
+              <Link 
+                to="/#hero" 
                 className="nav-link py-3 border-bottom"
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleScrollToSection('hero')
-                }}
+                onClick={closeMobileMenu}
               >
-                <i className="me-2">🎉</i>
+                <i className="me-2">🎉</i>{' '}
                 Ver promociones
-              </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link 
+                to="/contacto" 
+                className="nav-link py-3 border-bottom"
+                onClick={closeMobileMenu}
+              >
+                <i className="me-2">📞</i>{' '}
+                Contáctanos
+              </Link>
             </li>
           </ul>
-          
+
           {/* Botones de acción móviles */}
           <div className="d-grid gap-2 mb-3">
             <button
@@ -183,7 +182,7 @@ const Header = () => {
               className="btn btn-outline-primary d-flex align-items-center justify-content-between"
             >
               <span>
-                <i className="me-2">🛒</i>
+                <i className="me-2">🛒</i>{' '}
                 Mi carrito
               </span>
               {totalItems > 0 ? (
@@ -192,7 +191,7 @@ const Header = () => {
                 <small className="text-muted">(vacío)</small>
               )}
             </button>
-            
+
             <a
               href="https://wa.me/573012345678?text=Hola! Me interesa información sobre sus productos"
               target="_blank"
@@ -200,7 +199,7 @@ const Header = () => {
               className="btn btn-success"
               onClick={closeMobileMenu}
             >
-              <i className="me-2">💬</i>
+              <i className="me-2">💬</i>{' '}
               Contactar por WhatsApp
             </a>
           </div>

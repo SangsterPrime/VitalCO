@@ -44,8 +44,8 @@ const ProductCard = ({ product, isPromo = false }) => {
       {isPromo && (
         <>
           <div className="position-absolute top-0 start-0 m-2" style={{ zIndex: 10 }}>
-            <span className="badge bg-warning text-dark px-2 py-1 rounded-pill">
-              🔥 PROMO
+            <span className="badge bg-warning text-dark px-2 py-1 rounded-pill" aria-label="Promoción">
+              <span aria-hidden="true">🔥</span> PROMO
             </span>
           </div>
           {hasPromoInfo && (
@@ -61,9 +61,14 @@ const ProductCard = ({ product, isPromo = false }) => {
       <div 
         className="card-img-top position-relative"
         style={{ 
-          height: isPromo ? 'auto' : '200px',
-          overflow: isPromo ? 'visible' : 'hidden',
-          backgroundColor: isPromo ? '#f8f9fa' : undefined
+          // Para promos: altura responsiva que se adapta al viewport sin recortar
+          height: isPromo ? 'clamp(240px, 34vw, 380px)' : '200px',
+          overflow: 'hidden',
+          backgroundColor: isPromo ? '#f8f9fa' : undefined,
+          display: isPromo ? 'flex' : undefined,
+          alignItems: isPromo ? 'center' : undefined,
+          justifyContent: isPromo ? 'center' : undefined,
+          padding: isPromo ? '8px' : undefined,
         }}
       >
         {!imageLoaded && !imageError && (
@@ -76,10 +81,15 @@ const ProductCard = ({ product, isPromo = false }) => {
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className={isPromo ? 'w-100' : 'w-100 h-100'}
+          className={isPromo ? 'img-fluid' : 'w-100 h-100'}
           style={{ 
             objectFit: isPromo ? 'contain' : 'cover',
+            objectPosition: isPromo ? '50% 50%' : undefined,
+            // Para promos, que la imagen nunca exceda el alto del contenedor
+            maxHeight: isPromo ? '100%' : undefined,
+            maxWidth: isPromo ? '100%' : undefined,
             height: isPromo ? 'auto' : undefined,
+            width: isPromo ? 'auto' : undefined,
             opacity: imageLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease'
           }}

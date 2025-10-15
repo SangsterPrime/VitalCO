@@ -92,6 +92,22 @@ export const products = [
     image: '/images/dispensordemesa.webp'
   },
   {
+    id: 'bomba_usb_premium',
+    name: 'Bomba USB Premium',
+    description: 'Mayor caudal y autonomía.',
+    price: 9990,
+    category: 'accesorios',
+    image: '/images/bombaUSBpremium.webp'
+  },
+  {
+    id: 'bomba_usb',
+    name: 'Bomba eléctrica USB',
+    description: 'Recargable, fácil de usar.',
+    price: 3990,
+    category: 'accesorios',
+    image: '/images/bombaUSB.webp'
+  },
+  {
     id: 'disp_pinguino',
     name: 'Dispensador Pingüino',
     description: 'Divertido para los niños.',
@@ -119,22 +135,6 @@ export const products = [
     priceText: 'consultar el precio'
   },
   {
-    id: 'bomba_usb',
-    name: 'Bomba eléctrica USB',
-    description: 'Recargable, fácil de usar.',
-    price: 3990,
-    category: 'accesorios',
-    image: '/images/bombaUSB.webp'
-  },
-  {
-    id: 'bomba_usb_premium',
-    name: 'Bomba USB Premium',
-    description: 'Mayor caudal y autonomía.',
-    price: 9990,
-    category: 'accesorios',
-    image: '/images/bombaUSBpremium.webp'
-  },
-  {
     id: 'disp_lb_b2',
     name: 'Dispensador LB-B2',
     description: 'Robusto y eficiente.',
@@ -157,23 +157,23 @@ export const products = [
 export const promotions = [
   {
     id: 'promo_1',
-    name: 'Promo #1: 2 recargas + 1 bandeja de huevos 20 unid',
-    description: 'Ahorra comprando el combo completo',
+    name: 'Promo (Super): 2 recargas + 1 bandeja 20',
+    description: 'Precios de promoción',
     price: 0,
     originalPrice: 11500,
-    discountPrice: 10500,
+    discountPrice: 10990,
   image: '/Promo1.webp',
-    priceText: 'Precio especial: consultar'
+    priceText: 'Precio de promoción'
   },
   {
     id: 'promo_2',
-    name: 'Promo #2: 2 recargas + 1 bandeja de huevos 30 unid',
-    description: 'El combo más popular',
+    name: 'Promo (extra): 2 recargas + 1 bandeja de huevo 30 un.',
+    description: 'Precios de promoción',
     price: 0,
     originalPrice: 13170,
-    discountPrice: 12000,
+    discountPrice: 12990,
   image: '/Promo2.webp',
-    priceText: 'Precio especial: consultar'
+    priceText: 'Precio de promoción'
   }
 ]
 
@@ -184,6 +184,6 @@ export const categories = [
   { id: 'huevos-super', name: 'Huevos Súper' },
   { id: 'carbon', name: 'Carbón' },
   { id: 'accesorios', name: 'Accesorios' },
-  { id: 'dispensadores', name: 'Dispensadores' },
+  { id: 'dispensadores', name: 'Dispensadores electrónicos' },
   { id: 'organizadores', name: 'Organizadores' }
 ]
