@@ -172,6 +172,19 @@ body {
   box-shadow: 0 0 0 4px rgba(255,255,255,0.25);
 }
 
+/* Orange CTA variant */
+.btn-cta-orange {
+  background: #ff7a00; /* vivid orange */
+  border-color: #ff7a00;
+  color: #fff;
+}
+.btn-cta-orange:hover,
+.btn-cta-orange:focus-visible {
+  background: #e56d00;
+  border-color: #e56d00;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #ff7a00 30%, transparent);
+}
+
 .btn--ghost {
   background: transparent;
   color: var(--color-text);
@@ -442,8 +455,8 @@ body {
 
 /* Hero Section */
 .hero {
-  /* Turquoise background replacing original blue */
-  background: linear-gradient(135deg, #40e0d0 0%, #23b5a8 50%, #1aa395 100%);
+  /* Brand green background */
+  background: linear-gradient(180deg, #007F5F 0%, #009E73 100%);
   color: white;
   padding: var(--spacing-xl) 0;
   min-height: 70vh;

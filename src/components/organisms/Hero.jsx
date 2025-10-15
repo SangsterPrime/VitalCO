@@ -17,38 +17,25 @@ const Hero = () => {
             <div className="text-center text-lg-start mb-4 mb-lg-0">
               {/* Título sin repetir logo+nombre; destacamos solo el subtítulo */}
               <h1 id="hero-heading" className="display-4 fw-bold mb-3">
-                Tu aliada en abastecimiento del hogar
+                Cuidamos tu hogar como tú lo haces.
               </h1>
-              <div>
-                <span className="subtitle--distribuidora">Distribuidora</span>
+              {/* Subtítulo solicitado */}
+              <div className="mt-2 text-normal-case leading-relaxed">
+                <p className="mb-2">Tu aliada en abastecimiento del hogar.</p>
+                <p className="mb-0">Recibe agua, huevos y carbón sin moverte de casa, siempre con atención cordial.</p>
               </div>
 
-              {/* Copys en párrafos cortos con mayor interlineado */}
-              <div className="mt-3 text-normal-case leading-relaxed">
-                <p className="mb-2">Recargas de agua purificada, huevos frescos y carbón para tus asados.</p>
-                <p className="mb-2">Accesorios para dispensadores y botellones, con entrega a domicilio.</p>
-                <p className="mb-0">Atención cordial y precios justos en tu barrio.</p>
-              </div>
-
-              {/* CTAs mejoradas */}
-              <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start mt-4">
-                <button 
-                  className="btn btn-cta btn--large"
-                  onClick={() => scrollToSection('menu')}
-                  aria-label="Ver catálogo completo de productos"
-                >
-                  <span aria-hidden="true" className="me-2">🛒</span>
-                  Ver catálogo
-                </button>
-                <a 
-                  className="btn btn-cta-outline btn--large"
-                  href="https://wa.me/573012345678?text=Hola! Me interesa información sobre sus productos"
+              {/* CTA única para impulsar compra */}
+              <div className="d-flex justify-content-center justify-content-lg-start mt-4">
+                <a
+                  className="btn btn-cta-orange btn--large"
+                  href="https://wa.me/573012345678?text=Hola%21%20Quiero%20mi%20pedido%20a%20domicilio.%20%C2%BFMe%20ayudas%3F"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Contactar por WhatsApp en una nueva pestaña"
+                  aria-label="Quiero mi pedido a domicilio por WhatsApp"
                 >
-                  <span aria-hidden="true" className="me-2">💬</span>
-                  WhatsApp
+                  <span aria-hidden="true" className="me-2">🛻</span>
+                  Quiero mi pedido a domicilio
                 </a>
               </div>
             </div>

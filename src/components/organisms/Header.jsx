@@ -58,7 +58,7 @@ const Header = () => {
           <Link className="navbar-brand fw-bold text-dark d-flex align-items-center" to="/">
             <img 
               src="/images/loguisimo.webp" 
-              alt="vitalCO" 
+              alt="VitalCO" 
               width="30"
               height="30"
               className="me-2"
@@ -68,7 +68,7 @@ const Header = () => {
                 e.target.style.display = 'none'
               }}
             />{' '}
-            vitalCO
+            VitalCO
           </Link>
 
           {/* Desktop Navigation */}

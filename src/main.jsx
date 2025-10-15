@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import './styles/global.css'
 import './styles/bootstrap-custom.css'
+import './styles/vitalco.css'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 

@@ -4,7 +4,6 @@ import Cart from './components/organisms/Cart'
 import Footer from './components/organisms/Footer'
 import Toast from './components/molecules/Toast'
 import { CartProvider } from './context/CartContext'
-import InstagramFloating from './components/molecules/InstagramFloating'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
@@ -41,7 +40,7 @@ function App() {
         <Cart />
         <Footer />
         <Toast />
-        <InstagramFloating />
+
       </div>
     </CartProvider>
   )
