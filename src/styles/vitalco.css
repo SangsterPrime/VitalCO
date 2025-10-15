@@ -659,6 +659,32 @@ body {
   transform: scale(1.05);
 }
 
+/* Professional promo card styling (scoped) */
+.promo-pro {
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, #ffffff 82%);
+  background: linear-gradient(180deg, var(--color-primary-50), #ffffff);
+  box-shadow: var(--shadow-soft);
+}
+
+.promo-pro:hover { box-shadow: 0 14px 32px rgba(0,0,0,0.14); transform: translateY(-2px); }
+
+.promo-pro-media {
+  background-image: radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.promo-pill { box-shadow: 0 4px 12px rgba(0,0,0,0.12); letter-spacing: 0.02em; font-weight: 700; }
+
+.price-before { opacity: 0.7; }
+.promo-price-now { color: var(--color-success); font-weight: 800; }
+
+/* Responsive focus helpers (if used) */
+.promo2-focus { object-position: 50% 76%; }
+@media (max-width: 576px) {
+  .promo2-focus { object-position: 50% 80%; }
+}
+
 /* Promotions section wrappers for ProductCard promos */
 .promos-section .promo-card-wrapper .card {
   border-radius: var(--radius-lg);

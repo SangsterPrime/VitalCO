@@ -10,7 +10,7 @@ const Cart = () => {
     updateQuantity, 
     getTotalPrice,
     generateWhatsAppMessage,
-    clearCart 
+    
   } = useCart()
 
   const [customerName, setCustomerName] = useState('')

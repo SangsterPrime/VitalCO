@@ -23,10 +23,10 @@ function cargarCarrito(){
 	try{
 		const raw = localStorage.getItem(STORAGE_KEY);
 		if(raw){ estado.carrito = JSON.parse(raw) || {}; }
-	}catch{}
+	}catch{ /* noop: storage unavailable or JSON parse failed */ }
 }
 function guardarCarrito(){
-	try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(estado.carrito)); }catch{}
+	try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(estado.carrito)); }catch{ /* noop: storage unavailable */ }
 }
 
 // Renderizado carrito
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// En el hero, dar prioridad de carga a las 3 promos (mejora iOS Safari)
 	$$('#listaPromos .producto__img img').forEach(img=>{
-		try{ img.loading = 'eager'; }catch{}
+		try{ img.loading = 'eager'; }catch{ /* noop: attribute not supported */ }
 		// Sugerir al navegador prioridad alta si soporta
-		try{ img.fetchPriority = 'high'; }catch{}
+		try{ img.fetchPriority = 'high'; }catch{ /* noop: attribute not supported */ }
 	});
 
 	// Clicks globales (delegación)

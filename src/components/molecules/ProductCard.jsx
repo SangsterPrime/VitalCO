@@ -39,12 +39,22 @@ const ProductCard = ({ product, isPromo = false }) => {
     return `$${price.toLocaleString()}`
   }
 
+  // Afinar encuadre vertical para promociones específicas
+  const isPromoSuper = isPromo && product?.id === 'promo_1'
+  const isPromoExtra = isPromo && product?.id === 'promo_2'
+  // Base: 62% (recorte leve superior). Super 63%. Extra más alto 76%.
+  const promoObjectPosition = isPromoExtra
+    ? '50% 76%'
+    : isPromoSuper
+    ? '50% 63%'
+    : '50% 62%'
+
   return (
-    <div className={`card h-100 shadow-sm ${isPromo ? 'border-warning promo-card' : ''}`}>
+    <div className={`card h-100 shadow-sm ${isPromo ? 'promo-pro' : ''}`}>
       {isPromo && (
         <>
           <div className="position-absolute top-0 start-0 m-2" style={{ zIndex: 10 }}>
-            <span className="badge bg-warning text-dark px-2 py-1 rounded-pill" aria-label="Promoción">
+            <span className="badge bg-warning text-dark px-2 py-1 rounded-pill promo-pill" aria-label="Promoción">
               <span aria-hidden="true">🔥</span> PROMO
             </span>
           </div>
@@ -61,14 +71,9 @@ const ProductCard = ({ product, isPromo = false }) => {
       <div 
         className="card-img-top position-relative"
         style={{ 
-          // Para promos: altura responsiva que se adapta al viewport sin recortar
+          // Altura responsiva para promos (no achicar); estándar para otros
           height: isPromo ? 'clamp(240px, 34vw, 380px)' : '200px',
           overflow: 'hidden',
-          backgroundColor: isPromo ? '#f8f9fa' : undefined,
-          display: isPromo ? 'flex' : undefined,
-          alignItems: isPromo ? 'center' : undefined,
-          justifyContent: isPromo ? 'center' : undefined,
-          padding: isPromo ? '8px' : undefined,
         }}
       >
         {!imageLoaded && !imageError && (
@@ -81,15 +86,11 @@ const ProductCard = ({ product, isPromo = false }) => {
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className={isPromo ? 'img-fluid' : 'w-100 h-100'}
+          className={`w-100 h-100 ${isPromo && product?.id === 'promo_2' ? 'promo2-focus' : ''}`}
           style={{ 
-            objectFit: isPromo ? 'contain' : 'cover',
-            objectPosition: isPromo ? '50% 50%' : undefined,
-            // Para promos, que la imagen nunca exceda el alto del contenedor
-            maxHeight: isPromo ? '100%' : undefined,
-            maxWidth: isPromo ? '100%' : undefined,
-            height: isPromo ? 'auto' : undefined,
-            width: isPromo ? 'auto' : undefined,
+            objectFit: 'cover',
+            // Para promos, recortar un poco arriba y "levantar" el contenido visible (ajustes por promo)
+            objectPosition: isPromo ? promoObjectPosition : '50% 50%',
             opacity: imageLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease'
           }}
@@ -121,8 +122,8 @@ const ProductCard = ({ product, isPromo = false }) => {
             <div className="small text-muted mb-1">
               <span className="text-decoration-line-through">${product.originalPrice?.toLocaleString?.() ?? product.originalPrice}</span>
             </div>
-            <div className="h5 mb-1 text-success">
-              Ahora ${product.discountPrice?.toLocaleString?.() ?? product.discountPrice}
+            <div className="h5 mb-1 promo-price-now">
+              AHORA ${product.discountPrice?.toLocaleString?.() ?? product.discountPrice}
             </div>
             {product.price === 0 && product.priceText && (
               <div className="text-success fw-semibold">{product.priceText}</div>
