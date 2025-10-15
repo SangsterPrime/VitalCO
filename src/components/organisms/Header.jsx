@@ -60,7 +60,7 @@ const Header = () => {
           {/* Logo */}
           <a className="navbar-brand fw-bold text-dark d-flex align-items-center" href="#home">
             <img 
-              src="/logo.webp" 
+              src="/images/loguisimo.webp" 
               alt="vitalCO" 
               width="30"
               height="30"

@@ -1,14 +1,14 @@
 /**
  * Configuración de la aplicación VitalCO
  * @author Joel Sangster (S4ngster)
- * @license Distribuidora Oeste - Licencia S4ngster 2025
+ * @license Distribuidora - Licencia S4ngster 2025
  */
 
 export const APP_CONFIG = {
   // Información de la empresa
   company: {
     name: 'VitalCO',
-    fullName: 'VitalCO - Distribuidora Oeste',
+  fullName: 'VitalCO - Distribuidora',
     description: 'Recargas de agua, huevos frescos, carbón y accesorios',
     tagline: 'Entrega a domicilio - Calidad garantizada'
   },
@@ -26,7 +26,7 @@ export const APP_CONFIG = {
 
   // Configuración de la aplicación
   app: {
-    title: 'VitalCO - Distribuidora Oeste',
+  title: 'VitalCO - Distribuidora',
     version: '1.0.0',
     author: 'Joel Sangster (S4ngster)',
     year: 2025
@@ -75,7 +75,7 @@ export const APP_CONFIG = {
   // Configuración de SEO
   seo: {
     keywords: 'agua, huevos, carbón, dispensadores, recargas, domicilio',
-    description: 'VitalCO - Distribuidora Oeste: recargas de agua, huevos frescos, carbón y accesorios. Entrega a domicilio con calidad garantizada.',
+  description: 'VitalCO - Distribuidora: recargas de agua, huevos frescos, carbón y accesorios. Entrega a domicilio con calidad garantizada.',
     author: 'Joel Sangster (S4ngster)',
     locale: 'es_CO'
   }

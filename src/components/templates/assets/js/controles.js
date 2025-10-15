@@ -1,6 +1,6 @@
 /*
   © 2025 S4ngster — Licencia S4ngster 2025
-  Uso interno de Distribuidora Oeste. No redistribuir.
+	Uso interno de Distribuidora. No redistribuir.
 */
 
 
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const direccion = ($('#cliDireccion')?.value || '').trim();
 			const notas = ($('#cliNotas')?.value || '').trim();
 			const texto = [
-				'Hola, quiero hacer un pedido en Distribuidora Oeste - VitalCO:',
+				'Hola, quiero hacer un pedido en Distribuidora - VitalCO:',
 				'',
 				...lineas,
 				'',

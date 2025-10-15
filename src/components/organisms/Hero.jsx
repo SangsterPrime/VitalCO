@@ -17,12 +17,14 @@ const Hero = () => {
             <div className="text-center text-lg-start mb-4 mb-lg-0">
               <h1 className="display-3 fw-bold mb-3">
                 <span className="d-block">VitalCO</span>
-                <span className="d-block h3 fw-normal opacity-75">Distribuidora Oeste</span>
+                <span className="d-block h3 fw-normal opacity-75">Distribuidora</span>
               </h1>
               <p className="lead mb-4">
-                Recargas de agua, huevos frescos, carbón y accesorios. 
+                ¡Bienvenidos a <strong>VitalCO</strong>! Somos una distribuidora cercana y confiable.
+                Ofrecemos <strong>recargas de agua purificada</strong>, <strong>huevos frescos</strong>,
+                <strong> carbón</strong> y <strong>accesorios</strong> para tus dispensadores y botellones.
                 <br />
-                <strong>Entrega a domicilio</strong> - Calidad garantizada
+                Atención amable, buenos precios y <strong>entrega a domicilio</strong>.
               </p>
               
               <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">

@@ -1,4 +1,4 @@
-# VitalCO - Distribuidora Oeste
+# VitalCO - Distribuidora
 
 Aplicación web de comercio electrónico para VitalCO, migrada de HTML/CSS/JS a React + Vite.
 

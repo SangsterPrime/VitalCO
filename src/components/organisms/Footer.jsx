@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-md-6">
             <h5 className="text-primary">VitalCO</h5>
             <p className="small text-muted">
-              Distribuidora Oeste - Calidad garantizada
+              Distribuidora - Calidad garantizada
             </p>
           </div>
           <div className="col-md-6 text-md-end">

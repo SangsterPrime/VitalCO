@@ -68,6 +68,19 @@ img {
   height: auto;
 }
 
+/* Headings: force uppercase for titles */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Utility to opt-out of uppercase when needed */
+.text-normal-case {
+  text-transform: none !important;
+}
+
 /* Smooth scrolling for anchors */
 @media (prefers-reduced-motion: no-preference) {
   html {
