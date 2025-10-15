@@ -14,7 +14,9 @@
   --color-bg-light: #f9fafb;
   --color-border: #e5e7eb;
   --color-shadow: rgba(0, 0, 0, 0.1);
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: 'Poppins', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-alt: 'Nunito Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --hero-yellow: #f7d34b; /* warm yellow similar to screenshot */
   --border-radius: 8px;
   --radius-lg: 14px;
   --spacing-xs: 0.25rem;
@@ -23,6 +25,9 @@
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --shadow-soft: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --header-height: 72px;
+  --z-header: 1100;
+  --z-toast: 2000;
 }
 
 * { box-sizing: border-box; }
@@ -44,7 +49,7 @@ body {
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-header);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
@@ -183,6 +188,20 @@ body {
   background: #e56d00;
   border-color: #e56d00;
   box-shadow: 0 0 0 4px color-mix(in srgb, #ff7a00 30%, transparent);
+}
+
+/* Yellow CTA to match screenshot: yellow background with black text */
+.btn-cta-yellow {
+  background: #f2c94c; /* bright yellow */
+  border: 2px solid #f2c94c;
+  color: #111827; /* near black */
+}
+.btn-cta-yellow:hover,
+.btn-cta-yellow:focus-visible {
+  background: #e6be3f;
+  border-color: #e6be3f;
+  color: #0f172a;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #f2c94c 30%, transparent);
 }
 
 .btn--ghost {
@@ -500,18 +519,16 @@ body {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: var(--spacing-sm);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(45deg, #fff, #e0e7ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 
 .hero__title-sub {
   display: block;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 400;
-  opacity: 0.9;
+  color: var(--hero-yellow);
+  opacity: 1;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -996,5 +1013,34 @@ body {
     right: var(--spacing-sm);
     left: var(--spacing-sm);
     min-width: auto;
+  }
+}
+
+/* Header siempre arriba */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+}
+
+/* Asegura que el hero no tape a los toasts */
+.hero { position: relative; z-index: 0; }
+.hero::before { z-index: 0; }
+
+/* Contenedor de toasts (cart feedback) fijo y visible */
+.toast-container {
+  position: fixed;
+  top: calc(var(--header-height) + 12px);
+  right: 16px;
+  z-index: var(--z-toast);
+  pointer-events: auto;
+}
+
+@media (max-width: 576px) {
+  .toast-container {
+    top: auto;
+    bottom: 16px;
+    right: 12px;
+    left: 12px; /* opcional: centra en móvil si el toast es ancho */
   }
 }

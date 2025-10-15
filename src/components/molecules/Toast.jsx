@@ -1,6 +1,6 @@
 import { useCart } from '../../context/CartContext'
 
-const Toast = () => {
+export default function Toast() {
   const { notifications, removeNotification } = useCart()
 
   if (notifications.length === 0) return null
@@ -24,12 +24,7 @@ const Toast = () => {
   }
 
   return (
-    <div 
-      className="position-fixed top-0 end-0 p-3" 
-      style={{ zIndex: 1080 }}
-      aria-live="polite" 
-      aria-atomic="true"
-    >
+    <div className="toast-container" role="region" aria-label="Notificaciones de carrito">
       {notifications.map(notification => (
         <div 
           key={notification.id}
@@ -50,5 +45,3 @@ const Toast = () => {
     </div>
   )
 }
-
-export default Toast
