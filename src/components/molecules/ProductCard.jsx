@@ -58,7 +58,14 @@ const ProductCard = ({ product, isPromo = false }) => {
         </>
       )}
 
-      <div className="card-img-top position-relative" style={{ height: isPromo ? '230px' : '200px', overflow: 'hidden' }}>
+      <div 
+        className="card-img-top position-relative"
+        style={{ 
+          height: isPromo ? 'auto' : '200px',
+          overflow: isPromo ? 'visible' : 'hidden',
+          backgroundColor: isPromo ? '#f8f9fa' : undefined
+        }}
+      >
         {!imageLoaded && !imageError && (
           <div className="position-absolute top-50 start-50 translate-middle">
             <LoadingSpinner size="small" color="primary" />
@@ -69,9 +76,10 @@ const ProductCard = ({ product, isPromo = false }) => {
           src={product.image}
           alt={product.name}
           loading="lazy"
-          className="w-100 h-100"
+          className={isPromo ? 'w-100' : 'w-100 h-100'}
           style={{ 
-            objectFit: 'cover',
+            objectFit: isPromo ? 'contain' : 'cover',
+            height: isPromo ? 'auto' : undefined,
             opacity: imageLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease'
           }}
@@ -118,7 +126,7 @@ const ProductCard = ({ product, isPromo = false }) => {
         
         <div className="d-flex align-items-center gap-2 mt-auto">
           {product.price > 0 && (
-            <div className="btn-group" role="group" aria-label="Cantidad">
+            <div className="btn-group" aria-label="Cantidad">
               <button 
                 onClick={decreaseQuantity}
                 className="btn btn-outline-secondary btn-sm"

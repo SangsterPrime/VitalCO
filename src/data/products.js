@@ -162,7 +162,7 @@ export const promotions = [
     price: 0,
     originalPrice: 11500,
     discountPrice: 10500,
-    image: '/Promo1.webp',
+  image: '/Promo1.webp',
     priceText: 'Precio especial: consultar'
   },
   {
@@ -172,7 +172,7 @@ export const promotions = [
     price: 0,
     originalPrice: 13170,
     discountPrice: 12000,
-    image: '/Promo2.webp',
+  image: '/Promo2.webp',
     priceText: 'Precio especial: consultar'
   }
 ]
