@@ -78,7 +78,7 @@ export const products = [
   {
     id: 'pack_bidones',
     name: 'Rack para bidones',
-    description: 'Tapas, picos y sellos.',
+  description: 'Organizador y optimizador de espacios.',
     price: 55000,
     category: 'organizadores',
     image: '/images/packforbidones.webp'
@@ -103,7 +103,7 @@ export const products = [
     id: 'bomba_usb',
     name: 'Bomba eléctrica USB',
     description: 'Recargable, fácil de usar.',
-    price: 3990,
+    price: 5640,
     category: 'accesorios',
     image: '/images/bombaUSB.webp'
   },

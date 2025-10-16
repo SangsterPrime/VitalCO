@@ -22,7 +22,7 @@ const Hero = () => {
               {/* Subtítulo solicitado */}
               <div className="mt-2 text-normal-case leading-relaxed">
                 <p className="mb-2 hero__title-sub">Tu aliada en abastecimiento del hogar</p>
-                <p className="mb-0 hero__description">Recibe agua, huevos y carbón sin moverte de casa, con un servicio confiable y siempre atento a ti.</p>
+                <p className="mb-0 hero__description">Recibe tus productos esenciales sin moverte de casa.</p>
               </div>
 
               {/* CTA única para impulsar compra */}
