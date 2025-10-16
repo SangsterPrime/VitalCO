@@ -16,7 +16,7 @@ export const APP_CONFIG = {
   // Configuración de contacto
   contact: {
     whatsapp: {
-      number: '573012345678', // Actualizar con el número real
+  number: '56988000961', // Número en formato internacional sin '+' (Chile)
       message: 'Hola! Me interesa información sobre sus productos'
     },
     // Puedes agregar más métodos de contacto aquí

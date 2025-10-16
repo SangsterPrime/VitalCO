@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-md-6">
             <h5 className="text-primary">VitalCO</h5>
             <p className="small mb-0">
-              <span className="text-light">Distribuidora - Calidad garantizada</span>
+              <span className="text-light">VitalCO lleva lo esencial a tu puerta. Compra fácil, rápido y con confianza.</span>
             </p>
           </div>
           <div className="col-md-6 text-md-end">

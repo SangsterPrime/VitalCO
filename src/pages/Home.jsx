@@ -22,7 +22,7 @@ const Home = () => {
                 </a>
                 <a
                   className="btn btn-cta-yellow"
-                  href="https://wa.me/573012345678?text=Hola%21%20Quiero%20agendar%20mi%20pedido%20hoy.%20%C2%BFMe%20ayudas%3F"
+                  href="https://wa.me/56988000961?text=Hola%21%20Quiero%20agendar%20mi%20pedido%20hoy.%20%C2%BFMe%20ayudas%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

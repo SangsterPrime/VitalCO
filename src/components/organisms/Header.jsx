@@ -193,7 +193,7 @@ const Header = () => {
             </button>
 
             <a
-              href="https://wa.me/573012345678?text=Hola! Me interesa información sobre sus productos"
+              href="https://wa.me/56988000961?text=Hola! Me interesa información sobre sus productos"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-success"

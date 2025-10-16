@@ -29,7 +29,7 @@ const Hero = () => {
               <div className="d-flex justify-content-center justify-content-lg-start mt-4">
                 <a
                   className="btn btn-cta-yellow btn--large"
-                  href="https://wa.me/573012345678?text=Hola%21%20Quiero%20mi%20pedido%20a%20domicilio.%20%C2%BFMe%20ayudas%3F"
+                  href="https://wa.me/56988000961?text=Hola%21%20Quiero%20mi%20pedido%20a%20domicilio.%20%C2%BFMe%20ayudas%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Quiero mi pedido a domicilio por WhatsApp"

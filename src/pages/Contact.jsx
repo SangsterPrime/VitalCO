@@ -54,7 +54,7 @@ const Contact = () => {
 
           <div className="col-sm-6 col-md-4">
             <a
-              href="https://wa.me/573012345678?text=Hola! Me interesa información sobre sus productos"
+              href="https://wa.me/56988000961?text=Hola! Me interesa información sobre sus productos"
               target="_blank"
               rel="noopener noreferrer"
               className="text-decoration-none d-block card p-4 text-center"
@@ -64,7 +64,7 @@ const Contact = () => {
                 <FontAwesomeIcon className="brand-icon brand-wa" icon={byPrefixAndName.fab['whatsapp']} />
               </div>
               <div className="h5 mb-1">WhatsApp</div>
-              <div className="text-muted small">+57 301 234 5678</div>
+              <div className="text-muted small">+56 9 8800 0961</div>
             </a>
           </div>
         </div>

@@ -18,8 +18,8 @@ const ProductCard = ({ product, isPromo = false }) => {
   const handleAddToCart = () => {
     if (product.price === 0) {
       // Para productos con precio 0, redirigir a WhatsApp
-      const message = `Hola! Me interesa el producto: ${product.name}`
-      const whatsappUrl = `https://wa.me/573012345678?text=${encodeURIComponent(message)}`
+  const message = `Hola! Me interesa el producto: ${product.name}`
+  const whatsappUrl = `https://wa.me/56988000961?text=${encodeURIComponent(message)}`
       window.open(whatsappUrl, '_blank')
     } else {
       addItem(product, quantity)

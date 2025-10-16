@@ -28,7 +28,7 @@ const Cart = () => {
     if (items.length === 0) return
 
     const message = generateWhatsAppMessage(customerName, address)
-    const whatsappUrl = `https://wa.me/573012345678?text=${encodeURIComponent(message)}`
+  const whatsappUrl = `https://wa.me/56988000961?text=${encodeURIComponent(message)}`
     
     window.open(whatsappUrl, '_blank')
     
