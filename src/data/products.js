@@ -43,7 +43,7 @@ export const products = [
     name: 'Huevos Súper x20',
     description: 'Bandeja por 20 unidades.',
     price: 6900,
-    category: 'huevos-super',
+    category: 'huevos',
     image: '/images/30huevos2.webp',
     priceText: '6.900 los 20'
   },
@@ -73,6 +73,14 @@ export const products = [
     category: 'carbon',
     image: '/images/carbon3unidades.webp'
   },
+  {
+    id: 'carbon_bolsa',
+    name: 'Bolsa de carbón',
+    description: 'Bolsa lista para tus asados.',
+    price: 29880,
+    category: 'carbon',
+    image: '/images/BolsaCarbon.webp'
+  },
 
   // Accesorios
   {
@@ -82,6 +90,14 @@ export const products = [
     price: 55000,
     category: 'organizadores',
     image: '/images/packforbidones.webp'
+  },
+  {
+    id: 'rack_10_bidones',
+    name: 'Rack 10 bidones negro y gris',
+    description: 'Estructura robusta para almacenar hasta 10 bidones.',
+    price: 55000,
+    category: 'organizadores',
+    image: '/images/rack10bidones.webp'
   },
   {
     id: 'disp_mesa',
@@ -181,7 +197,6 @@ export const categories = [
   { id: 'todos', name: 'Todos los artículos' },
   { id: 'recargas', name: 'Recargas de agua' },
   { id: 'huevos', name: 'Huevos' },
-  { id: 'huevos-super', name: 'Huevos Súper' },
   { id: 'carbon', name: 'Carbón' },
   { id: 'accesorios', name: 'Accesorios' },
   { id: 'dispensadores', name: 'Dispensadores electrónicos' },
