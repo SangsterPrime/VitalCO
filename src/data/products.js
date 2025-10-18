@@ -84,14 +84,6 @@ export const products = [
 
   // Accesorios
   {
-    id: 'pack_bidones',
-    name: 'Rack para bidones',
-  description: 'Organizador y optimizador de espacios.',
-    price: 55000,
-    category: 'organizadores',
-    image: '/images/packforbidones.webp'
-  },
-  {
     id: 'rack_10_bidones',
     name: 'Rack 10 bidones negro y gris',
     description: 'Estructura robusta para almacenar hasta 10 bidones.',
