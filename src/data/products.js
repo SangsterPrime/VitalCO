@@ -75,7 +75,7 @@ export const products = [
   },
   {
     id: 'carbon_bolsa',
-    name: 'Bolsa de carbón',
+    name: 'Saco de carbón en trozos 20kg.',
     description: 'Bolsa lista para tus asados.',
     price: 29880,
     category: 'carbon',
