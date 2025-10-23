@@ -41,6 +41,9 @@ const Cart = () => {
     return `$${price.toLocaleString()}`
   }
 
+  const orderHeader = 'Resumen de tu pedido:'
+  const orderFooter = 'Generado desde VitalCO.cl';
+
   return (
     <>
       {/* Overlay para móviles */}
