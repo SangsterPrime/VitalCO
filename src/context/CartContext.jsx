@@ -185,7 +185,7 @@ ${items}
 
 *Total:* $${total.toLocaleString()}
 
-_Generado desde VitalCO.cl_`
+_Generado desde Vitalco.cl_`
   }
 
   const value = {
